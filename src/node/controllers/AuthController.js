@@ -9,11 +9,13 @@ const AuthController = {
 
         if(user === null || !verifyPassword(req.body.password, user.password)) return res.invalidCredentials();
 
+        let expires = Config.jwt_expires;
+
         const token = jwt.sign({user}, Config.jwt_token, {
-            expiresIn: Config.jwt_expires
+            expiresIn: expires
         });
 
-        res.sendData({token, user});
+        res.sendData({token, user, expires});
     },
     users: async (req, res) => {
         let users = await User.find();

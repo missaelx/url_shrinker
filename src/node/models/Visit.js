@@ -12,6 +12,10 @@ const VisitSchema = new Schema({
     url: {
         type: Schema.Types.ObjectId,
         ref: 'Url'
+    },
+    userIp: {
+        type: String,
+        required: false
     }
 
 });

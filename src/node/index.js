@@ -9,11 +9,12 @@ import Config from "./utils/Config.js";
 
 const app = express();
 
-app.use(cors())
+app.use(cors({ origin: true }))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(ResponseMiddleware);
 app.use(DeviceInfoMiddleware);
+app.set('trust proxy', true)
 
 
 app.get('/m/:urlCode', UrlRedirectsController.redirectByCode)
@@ -28,4 +29,5 @@ app.get("*", (req, res) => {
 
 app.listen(Config.port, () => {
     console.log("Server started at port " + Config.port);
+    console.log("Ready to work 😎")
 });

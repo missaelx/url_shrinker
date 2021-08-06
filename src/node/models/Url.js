@@ -22,6 +22,12 @@ const UrlSchema = new Schema({
         type: Object,
         required: false
     },
+    created_by: { type: Schema.Types.ObjectId, ref: 'User' },
+    created_at: {
+        type: Date,
+        required: true,
+        default: Date.now
+    },
     visits: [{ type: Schema.Types.ObjectId, ref: 'Visit' }]
 });
 

@@ -5,10 +5,12 @@ const UrlRedirectController = {
     redirectByCode: async (req, res) => {
         let url = await Url.findOne({ short: req.params.urlCode })
         if (url == null) return res.notFound();
+        let userIp = req.ip.split(":").pop();
 
         let newVisit = new Visit({
             deviceInfo: req.deviceInfo,
-            url: url._id
+            url: url._id,
+            userIp: userIp
         });
 
         await newVisit.save();

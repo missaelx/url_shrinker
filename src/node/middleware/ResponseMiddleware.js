@@ -41,14 +41,14 @@ export default (req, res, next) => {
     }
 
     res.tokenAbsent = () => {
-        return res.sendResponse("Token absent", 400, ERRORS.TOKEN_ABSENT)
+        return res.sendResponse("Token absent", 401, undefined, ERRORS.TOKEN_ABSENT)
     }
     res.invalidToken = () => {
-        return res.sendResponse("Invalid token", 400, ERRORS.INVALID_TOKEN)
+        return res.sendResponse("Invalid token", 401, undefined, ERRORS.INVALID_TOKEN)
     }
 
     res.invalidCredentials = () => {
-        return res.sendResponse("Invalid credentials", 401, ERRORS.INVALID_CREDENTIALS)
+        return res.sendResponse("Invalid credentials", 401, undefined, ERRORS.INVALID_CREDENTIALS)
     }
     res.sendData = (data, message = "") => {
         return res.sendResponse(message, 200, data, undefined);
