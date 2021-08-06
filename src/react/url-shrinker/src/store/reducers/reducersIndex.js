@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
 
-import authReducer from './auth/AuthReducer';
+import AuthReducer from './auth/AuthReducer';
+import NetworkReducer from "./network/NetworkReducer";
+import UrlReducer from "./url/UrlReducer";
 import * as actions from "../Actions";
 
 const appReducers = combineReducers({
-    auth: authReducer,
+    auth: AuthReducer,
+    network: NetworkReducer,
+    url: UrlReducer,
 });
 
 const rootReducer = (state, action) => {

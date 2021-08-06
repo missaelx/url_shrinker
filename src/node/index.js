@@ -22,9 +22,15 @@ app.get('/m/:urlCode', UrlRedirectsController.redirectByCode)
 app.use("/auth", AuthRouter);
 app.use("/api", ApiRouter);
 
-app.get("*", (req, res) => {
-    res.send("Are u looking for something?");
-})
+const pathReactApp = process.cwd() + '/src/public/index.html';
+const sendReactApp = (req, res) => res.sendFile(pathReactApp);
+
+
+app.use("/login", sendReactApp);
+app.use("/dashboard", sendReactApp);
+app.use("/dashboard/:id", sendReactApp);
+
+app.use("/", express.static('src/public'));
 
 
 app.listen(Config.port, () => {

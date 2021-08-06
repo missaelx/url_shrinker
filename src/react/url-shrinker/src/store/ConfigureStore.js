@@ -8,17 +8,17 @@ import thunk from "redux-thunk";
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth', 'user'],
+    whitelist: ['auth', "network", "url"],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 let composeValue = compose(applyMiddleware(thunk));
-if(process.env.REACT_APP_DEBUG === "true"){
+//if(process.env.REACT_APP_DEBUG === "true"){
     composeValue = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-} else {
-    composeValue = compose(applyMiddleware(thunk))
-}
+//} else {
+    //composeValue = compose(applyMiddleware(thunk))
+//}
 
 export const store = createStore(persistedReducer, composeValue)
 

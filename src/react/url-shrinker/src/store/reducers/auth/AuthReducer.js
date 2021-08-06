@@ -16,8 +16,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuthenticated: true,
-                token: action.payload.access_token,
-                expiresIn: action.payload.expires_in,
+                token: action.payload.token,
+                expiresIn: action.payload.expires,
                 user: action.payload.user,
             };
         case actionTypes.LOGIN_ERROR:
