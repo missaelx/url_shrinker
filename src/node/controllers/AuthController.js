@@ -20,15 +20,6 @@ const AuthController = {
     users: async (req, res) => {
         let users = await User.find();
         res.json(users);
-    },
-    fake: async (req, res) => {
-        let newUser = new User({
-            email: "missaelxp@gmail.com",
-            password: "password",
-            fullname: "Missael Hernández"
-        })
-        newUser.save();
-        res.send("saved");
     }
 }
 

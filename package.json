@@ -5,7 +5,7 @@
   "main": "src/node/index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --ignore 'src/react' src/node/index.js"
+    "dev:start": "npx nodemon --ignore 'src/react' src/node/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,11 @@
   },
   "homepage": "https://github.com/missaelx/url_shrinker#readme",
   "devDependencies": {
+    "cypress": "^8.2.0",
     "nodemon": "^2.0.12"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
