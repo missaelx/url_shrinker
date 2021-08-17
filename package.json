@@ -5,7 +5,8 @@
   "main": "src/node/index.js",
   "type": "module",
   "scripts": {
-    "dev:start": "npx nodemon --ignore 'src/react' src/node/index.js"
+    "dev:start": "npx nodemon --ignore 'src/react' src/node/index.js",
+    "dev:test": "cypress open"
   },
   "repository": {
     "type": "git",
