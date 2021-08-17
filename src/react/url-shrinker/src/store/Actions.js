@@ -19,3 +19,7 @@ export const CREATE_URL = "CREATE_URL";
 export const GET_URLS = "GET_URLS";
 export const GET_URL = "GET_URL";
 export const RESET_CREATED_URL = "RESET_CREATED_URL";
+
+//modal
+export const SHOW_MODAL = "SHOW_MODAL";
+export const HIDE_MODAL = "HIDE_MODAL";

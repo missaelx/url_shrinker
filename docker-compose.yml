@@ -8,6 +8,8 @@ services:
   app_url:
     build: .
     image: missael-dev-url-shrinker
+    depends_on:
+      - db
     labels:
       - traefik.backend=url-shrinker
       - traefik.frontend.rule=Host:l.missael.dev

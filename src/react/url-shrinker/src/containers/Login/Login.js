@@ -39,7 +39,7 @@ const Login = () => {
                                 <div className="field">
                                     <label htmlFor="" className="label">Email</label>
                                     <div className="control has-icons-left">
-                                        <input type="email" name="email" placeholder="me@missael.dev" className="input"
+                                        <input type="email" name="email" id="email" placeholder="me@missael.dev" className="input"
                                                required/>
                                         <span className="icon is-small is-left">
                                           <i className="fa fa-envelope"/>
@@ -49,7 +49,7 @@ const Login = () => {
                                 <div className="field">
                                     <label htmlFor="" className="label">Password</label>
                                     <div className="control has-icons-left">
-                                        <input type="password" name="password" placeholder="*******" className="input" required/>
+                                        <input type="password" name="password" id="password" placeholder="*******" className="input" required/>
                                         <span className="icon is-small is-left">
                                           <i className="fa fa-lock"/>
                                         </span>

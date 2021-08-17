@@ -25,7 +25,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a onClick={onLogoutClick} className="button is-warning">
+                            <a onClick={onLogoutClick} className="button is-warning" id="btnLogout">
                                 Log out
                             </a>
                         </div>

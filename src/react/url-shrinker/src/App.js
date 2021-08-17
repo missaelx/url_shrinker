@@ -1,4 +1,5 @@
-import 'bulma';
+//import 'bulma';
+import "./sass/bulma-overrides.scss";
 import {
     BrowserRouter as Router,
     Switch,
@@ -12,6 +13,7 @@ import Devices from "./containers/Devices/Devices";
 import NetworkUiResponder from "./hoc/NetworkUiResponder/NetworkUiResponder";
 import {useSelector} from "react-redux";
 import Home from "./containers/Home/Home";
+import Modal from "./components/modal/Modal";
 
 
 
@@ -47,6 +49,7 @@ function App() {
         <NetworkUiResponder>
             <ContentToLoad/>
             <ToastContainer/>
+            <Modal/>
         </NetworkUiResponder>
   );
 }

@@ -3,11 +3,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Config from "../../utils/Config";
+import {getLocation} from "../../store/reducers/geolocation/GeoLocationActions";
 
 const Devices = (props) => {
     const dispatch = useDispatch();
     const url = useSelector(state => state.url.url);
     let urlId = props.match.params.id;
+
+    const handleLocationInfo = (event, ip) => {
+        event.preventDefault();
+        dispatch(getLocation(ip));
+    }
 
     useEffect(() => {
         dispatch(getOne(urlId));
@@ -68,7 +74,10 @@ const Devices = (props) => {
                                     <tr key={visit._id}>
                                         <td>{ (new Date(visit.timestamp)).toLocaleString()}</td>
                                         <td>{`${visit.deviceInfo.os?.name ?? ""} ${visit.deviceInfo.os?.version ?? ""} ${visit.deviceInfo.device.brand} (${visit.deviceInfo.device.type}) - ${visit.deviceInfo.client.name}`}</td>
-                                        <td>{visit.userIp}</td>
+                                        <td>
+                                            {visit.userIp} <br/>
+                                            <a onClick={(e) => handleLocationInfo(e, visit.userIp)}>Show location info</a>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

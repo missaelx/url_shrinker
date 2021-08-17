@@ -25,10 +25,10 @@ const UrlForm = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="field has-addons">
                         <div className="control is-expanded">
-                            <input className="input" type="url" placeholder="URL" name="url" value={urlValue} onChange={(e) => setUrlValue(e.target.value)}/>
+                            <input className="input" type="url" placeholder="URL" name="url" id="url" value={urlValue} onChange={(e) => setUrlValue(e.target.value)}/>
                         </div>
                         <div className="control">
-                            <input type="submit" className="button is-info" value="Shrink link :)" />
+                            <input type="submit" className="button is-info" value="Shrink link :)" id="btnCreateLink" />
                         </div>
                     </div>
                 </form>
