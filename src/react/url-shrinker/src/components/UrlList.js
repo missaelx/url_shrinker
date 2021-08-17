@@ -35,11 +35,11 @@ const UrlList = () => {
                     <tbody>
                         {urls.map(url => (
                             <tr key={url._id}>
-                                <td><a href={url.url}>{url.url}</a></td>
-                                <td><a href={Config.urlBase + url.short}> {url.short}</a></td>
+                                <td><a rel="noreferrer" target="_blank" href={url.url}>{url.url}</a></td>
+                                <td><a rel="noreferrer" target="_blank" href={Config.urlBase + url.short}> {url.short}</a></td>
                                 <td>{url.clicks}</td>
                                 <td>
-                                    <a onClick={(e) => onDevicesClick(e, url._id)} className="button is-primary is-rounded">Devices</a>
+                                    <button onClick={(e) => onDevicesClick(e, url._id)} className="button is-primary is-rounded">Devices</button>
                                 </td>
                             </tr>
                         ))}

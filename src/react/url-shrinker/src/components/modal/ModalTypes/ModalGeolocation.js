@@ -9,7 +9,7 @@ const ModalGeolocation = (props) => {
     return <>
         <section className="modal-card-body">
             {isCityInformationAvailable ? (
-                <p>{additionalData.geoplugin_city}, {additionalData.geoplugin_region}</p>
+                <p><strong>City/region: </strong>{additionalData.geoplugin_city}, {additionalData.geoplugin_region}</p>
             ) : (
                 <p>City and region information not available for this IP</p>
             )}

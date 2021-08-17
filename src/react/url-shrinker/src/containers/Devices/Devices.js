@@ -44,8 +44,8 @@ const Devices = (props) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href={url?.url}>{url?.url}</a></td>
-                                    <td><a href={Config.urlBase + url?.short}> {url?.short}</a></td>
+                                    <td><a rel="noreferrer" target="_blank" href={url?.url}>{url?.url}</a></td>
+                                    <td><a rel="noreferrer" target="_blank" href={Config.urlBase + url?.short}> {url?.short}</a></td>
                                     <td>{url?.clicks}</td>
                                     <td>{url?.created_by?.fullname}</td>
                                     <td>{url?.created_at && (new Date(url?.created_at)).toLocaleString()}</td>
@@ -67,6 +67,7 @@ const Devices = (props) => {
                                 <th>Date</th>
                                 <th>Device Info</th>
                                 <th>User ip</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -76,7 +77,9 @@ const Devices = (props) => {
                                         <td>{`${visit.deviceInfo.os?.name ?? ""} ${visit.deviceInfo.os?.version ?? ""} ${visit.deviceInfo.device.brand} (${visit.deviceInfo.device.type}) - ${visit.deviceInfo.client.name}`}</td>
                                         <td>
                                             {visit.userIp} <br/>
-                                            <a onClick={(e) => handleLocationInfo(e, visit.userIp)}>Show location info</a>
+                                        </td>
+                                        <td>
+                                            <button className="button is-small is-link" onClick={(e) => handleLocationInfo(e, visit.userIp)}>Show location info</button>
                                         </td>
                                     </tr>
                                 ))}

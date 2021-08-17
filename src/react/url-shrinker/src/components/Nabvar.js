@@ -13,21 +13,21 @@ const Navbar = () => {
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false"
+                <button className="navbar-burger" aria-label="menu" aria-expanded="false"
                    data-target="navbarBasicExample">
                     <span aria-hidden="true"/>
                     <span aria-hidden="true"/>
                     <span aria-hidden="true"/>
-                </a>
+                </button>
             </div>
 
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a onClick={onLogoutClick} className="button is-warning" id="btnLogout">
+                            <button onClick={onLogoutClick} className="button is-warning" id="btnLogout">
                                 Log out
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

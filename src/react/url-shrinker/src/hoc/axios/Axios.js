@@ -57,8 +57,6 @@ export const interceptor = (store) => {
                         store.dispatch({type: actions.FORBIDDEN, payload: {message, status, data, errorCode}})
                     break;
                 case 401:
-                    console.log("response.data", error.response.data)
-                    console.log("errorCode", errorCode)
                     if(errorCode === ERRORS.TOKEN_ABSENT)
                         store.dispatch({type: actions.TOKEN_ABSENT, payload: {message, status, data, errorCode}})
                     else if(errorCode === ERRORS.INVALID_TOKEN)

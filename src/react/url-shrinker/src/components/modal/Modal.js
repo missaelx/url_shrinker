@@ -1,7 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import * as actions from "../../store/Actions";
 import * as modalTypes from "../../utils/ModalTypes";
-import {useState} from "react";
 import ModalGeolocation from "./ModalTypes/ModalGeolocation";
 import ModalAlert from "./ModalTypes/ModalAlert";
 
@@ -18,7 +17,6 @@ const Modal = () => {
     }
 
     const ContentToLoad = () => {
-        console.log("contentToLoad", modalType);
         switch (modalType){
             case modalTypes.GEOLOCATION:
                 return <ModalGeolocation onCloseModalClick={onCloseModalClick}/>;
