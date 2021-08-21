@@ -7,7 +7,7 @@ networks:
 services:
   app_url:
     build: .
-    image: missael-dev-url-shrinker
+    image: missaelxp/missael-dev-url-shrinker
     depends_on:
       - db
     labels:
