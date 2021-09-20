@@ -25,14 +25,11 @@ const ContentToLoad = () => {
         routes = (<>
             <Route path="/dashboard/:id" component={Devices} exact />
             <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/login" exact component={Login} />
-
-            <Route path="/" exact component={Home}/>
+            <Route path="/" exact component={Login} />
         </>)
     } else {
         routes = (<>
-            <Route path="/login" exact component={Login} />
-            <Route path="/" exact component={Home}/>
+            <Route path="/" exact component={Login} />
         </>)
     }
     return (

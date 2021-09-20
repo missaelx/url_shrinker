@@ -1,7 +1,17 @@
 import UrlForm from "../../components/UrlForm";
 import UrlList from "../../components/UrlList";
 import Navbar from "../../components/Nabvar";
+import {useSelector} from "react-redux";
+import {useEffect} from "react";
+import {useHistory} from "react-router-dom";
 const Dashboard = () => {
+    const history = useHistory();
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    useEffect(() => {
+        if(isAuthenticated) return;
+        history.push("/")
+    }, [isAuthenticated])
+
     return (<>
         <Navbar/>
         <div className="section">

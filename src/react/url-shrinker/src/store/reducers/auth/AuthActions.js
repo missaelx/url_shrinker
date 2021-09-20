@@ -13,3 +13,16 @@ export const login = (email, password) => {
         }
     }
 }
+
+export const signin = (fullname, email, password) => {
+    return async (dispatch) => {
+        try{
+            let response = await axiosInstance.post("/auth/singin", {
+                fullname, email, password
+            })
+            dispatch({ type: actions.SIGNIN, payload: {email, response} })
+        } catch(error) {
+            dispatch({ type: actions.SIGNIN_ERROR, payload: error.response })
+        }
+    }
+}

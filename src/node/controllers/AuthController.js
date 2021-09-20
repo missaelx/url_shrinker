@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import User from "../models/User.js";
-import {verifyPassword} from "../utils/Hasher.js";
+import {hashPassword, verifyPassword} from "../utils/Hasher.js";
 import Config from '../utils/Config.js';
 
 const AuthController = {
@@ -20,6 +20,22 @@ const AuthController = {
     users: async (req, res) => {
         let users = await User.find();
         res.json(users);
+    },
+    singin: async (req, res) => {
+        let user = new User({
+            email: req.body.email,
+            password: req.body.password,
+            fullname: req.body.fullname
+        });
+        user.password = hashPassword(user.password);
+
+        try{
+            await user.save();
+            res.sendOk();
+        } catch (e){
+            res.serverError(e.getMessage());
+            console.error(e);
+        }
     }
 }
 

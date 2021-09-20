@@ -7,7 +7,7 @@ const initialState = {
     user: null,
     error: null,
     badCredentials: false,
-    currentUserDepartments: []
+    signinUser: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +25,22 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload.data.error,
             };
+        case actionTypes.SIGNIN:
+            return {
+                ...state,
+                signinUser: action.payload.email
+            }
+        case actionTypes.SIGNIN_ERROR:
+            return {
+                ...state,
+                error: action.payload.data
+            }
+        case actionTypes.RESET_AUTH:
+            return {
+                ...state,
+                signinUser: "",
+            }
+
         default:
             return state;
     }

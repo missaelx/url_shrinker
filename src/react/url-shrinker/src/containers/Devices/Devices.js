@@ -74,7 +74,9 @@ const Devices = (props) => {
                                 {url?.visits.map(visit => (
                                     <tr key={visit._id}>
                                         <td>{ (new Date(visit.timestamp)).toLocaleString()}</td>
-                                        <td>{`${visit.deviceInfo.os?.name ?? ""} ${visit.deviceInfo.os?.version ?? ""} ${visit.deviceInfo.device.brand} (${visit.deviceInfo.device.type}) - ${visit.deviceInfo.client.name}`}</td>
+                                        <td>
+                                            {`${visit.deviceInfo.os?.name ?? ""} ${visit.deviceInfo.os?.version ?? ""} ${visit.deviceInfo.device?.brand} (${visit.deviceInfo.device?.type}) - ${visit.deviceInfo.client?.name ?? ""}`}
+                                        </td>
                                         <td>
                                             {visit.userIp} <br/>
                                         </td>

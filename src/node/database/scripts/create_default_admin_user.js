@@ -1,3 +1,6 @@
+/**
+ * Use this script for convenience. You can always create an account from UI
+ */
 import User from "../../models/User.js";
 import {hashPassword} from "../../utils/Hasher.js";
 

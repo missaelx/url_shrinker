@@ -8,7 +8,7 @@ const Navbar = () => {
     const onLogoutClick = (event) => {
         event.preventDefault();
         dispatch({type: actions.LOGOUT});
-        history.push("/login");
+        history.push("/");
     }
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">

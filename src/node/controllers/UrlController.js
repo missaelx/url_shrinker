@@ -2,7 +2,7 @@ import Url from '../models/Url.js';
 
 const UrlController = {
     get: async (req, res) => {
-        let urls = await Url.find().populate('visits').exec();
+        let urls = await Url.find({created_by: req.user._id}).populate('visits').exec();
         res.sendData(urls);
     },
     getOne: async (req, res) => {

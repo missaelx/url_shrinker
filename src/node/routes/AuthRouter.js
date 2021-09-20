@@ -4,6 +4,7 @@ const AuthRouter = express.Router();
 
 
 AuthRouter.post("/login", AuthController.login);
+AuthRouter.post("/singin", AuthController.singin);
 
 //testing routes, delete pleasito
 AuthRouter.get("/users", AuthController.users);
