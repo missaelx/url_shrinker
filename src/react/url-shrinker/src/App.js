@@ -23,20 +23,22 @@ const ContentToLoad = () => {
     let routes;
     if(isAuthenticated){
         routes = (<>
-            <Route path="/dashboard/:id" component={Devices} exact />
-            <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/" exact component={Login} />
+            <Switch>
+                <Route path="/dashboard/:id" component={Devices} exact />
+                <Route path="/dashboard" component={Dashboard} exact/>
+                <Route path="/" component={Login} />
+            </Switch>
         </>)
     } else {
         routes = (<>
-            <Route path="/" exact component={Login} />
+            <Switch>
+                <Route path="/" component={Login} />
+            </Switch>
         </>)
     }
     return (
         <Router>
-            <Switch>
-                {routes}
-            </Switch>
+            {routes}
         </Router>
     )
 }
