@@ -1,11 +1,18 @@
 import axios from "axios";
 import * as actions from "../../Actions";
 import * as modalTypes from "../../../utils/ModalTypes";
+import Config from "../../../utils/Config";
+
 
 export const getLocation = ip => {
     return async (dispatch) => {
         try{
-            let response = await axios.get(`http://www.geoplugin.net/json.gp?ip=${ip}`);
+            let response = await axios.get(`https://tools.keycdn.com/geo.json?host=${ip}`, {
+                "headers" : {
+                    "User-Agent": `keycdn-tools:${Config.geoClientUrl}`,
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
             console.log("Service response", response);
 
             dispatch({

@@ -8,7 +8,7 @@ RUN npm run build
 FROM node:14
 COPY ["package.json", "package-lock.json", "/usr/src/"]
 WORKDIR /usr/src
-RUN npm install
+RUN npm install --only=prod
 COPY [".", "/usr/src/"]
 COPY --from=builder /usr/src/build/ /usr/src/src/public
 EXPOSE 5000

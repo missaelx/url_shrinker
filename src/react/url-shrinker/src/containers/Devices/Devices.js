@@ -3,17 +3,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link} from 'react-router-dom';
 import Config from "../../utils/Config";
-import {getLocation} from "../../store/reducers/geolocation/GeoLocationActions";
 
 const Devices = (props) => {
     const dispatch = useDispatch();
     const url = useSelector(state => state.url.url);
     let urlId = props.match.params.id;
 
-    const handleLocationInfo = (event, ip) => {
-        event.preventDefault();
-        dispatch(getLocation(ip));
-    }
 
     useEffect(() => {
         dispatch(getOne(urlId));
@@ -81,7 +76,7 @@ const Devices = (props) => {
                                             {visit.userIp} <br/>
                                         </td>
                                         <td>
-                                            <button className="button is-small is-link" onClick={(e) => handleLocationInfo(e, visit.userIp)}>Show location info</button>
+                                            <a className="button is-small is-link" target="_blank" href={`https://tools.keycdn.com/geo?host=${visit.userIp}`}>Show location info</a>
                                         </td>
                                     </tr>
                                 ))}
